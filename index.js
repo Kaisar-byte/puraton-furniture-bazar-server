@@ -45,6 +45,7 @@ async function run() {
       .collection("furniture");
 
     const userCollection = client.db("furnitureDB").collection("user");
+    const orderCollection = client.db("furnitureDB").collection("order");
 
     // add new product
     app.post("/addProduct", async (req, res) => {
@@ -91,12 +92,24 @@ async function run() {
       const result = await userCollection.findOne(query);
       res.send(result);
     });
+   
 
-    app.get("/dashboard", (req, res) => {
-      const email = req.params.body;
-      console.log(email);
-    });
+
+    app.post("/order", async (req, res)=>{
+      const order = req.body;
+      const result = await orderCollection.insertOne(order);
+      res.send(result);
+    })
+    app.get("/orders", async (req, res)=>{
+      const cursor = orderCollection.find()
+      const result = await cursor.toArray();
+      console.log(result)
+      res.send(result);
+    })
+
+   
   } finally {
+    
   }
 }
 run().catch(console.dir);
