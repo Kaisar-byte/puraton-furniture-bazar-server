@@ -1,0 +1,93 @@
+[
+    {
+        "_id": "6658b7a19afb81fd7a1b6d89",
+        "productName": "Segun Khat",
+        "productPrice": "17000",
+        "sellerContactNumber": "01844114411",
+        "sellerLocation": "Khulshi, Chattogram",
+        "productCategory": "Drawing",
+        "productCategoryId": 2,
+        "productCondition": "excellent",
+        "productBuyingPrice": "65000",
+        "productDescription": "Looking new Segun Khat",
+        "productImgURL": "data:image/jpeg;base64,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"
+    },
+    {
+        "_id": "6658b7a19afb81fd7a1b6d90",
+        "productName": "Leather Sofa Set",
+        "productPrice": "25000",
+        "sellerContactNumber": "01722113455",
+        "sellerLocation": "Banani, Dhaka",
+        "productCategory": "Drawing",
+        "productCategoryId": 2,
+        "productCondition": "good",
+        "productBuyingPrice": "85000",
+        "productDescription": "Comfortable leather sofa set, slightly used.",
+        "productImgURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgVFhU…"
+    },
+    {
+        "_id": "6658b7a19afb81fd7a1b6d91",
+        "productName": "Dining Table",
+        "productPrice": "20000",
+        "sellerContactNumber": "01933445566",
+        "sellerLocation": "Uttara, Dhaka",
+        "productCategory": "Kitchen",
+        "productCategoryId": 3,
+        "productCondition": "good",
+        "productBuyingPrice": "60000",
+        "productDescription": "Wooden dining table with 6 chairs, barely used.",
+        "productImgURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgVFhU…"
+    },
+    {
+        "_id": "6658b7a19afb81fd7a1b6d92",
+        "productName": "Office Chair",
+        "productPrice": "5000",
+        "sellerContactNumber": "01622334455",
+        "sellerLocation": "Gulshan, Dhaka",
+        "productCategory": "Office",
+        "productCategoryId": 4,
+        "productCondition": "excellent",
+        "productBuyingPrice": "12000",
+        "productDescription": "Ergonomic office chair, used for 3 months.",
+        "productImgURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgVFhU…"
+    },
+    {
+        "_id": "6658b7a19afb81fd7a1b6d93",
+        "productName": "Bookshelf",
+        "productPrice": "7000",
+        "sellerContactNumber": "01566778899",
+        "sellerLocation": "Dhanmondi, Dhaka",
+        "productCategory": "Reading",
+        "productCategoryId": 5,
+        "productCondition": "good",
+        "productBuyingPrice": "18000",
+        "productDescription": "Spacious wooden bookshelf, minimal wear.",
+        "productImgURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgVFhU…"
+    },
+    {
+        "_id": "6658b7a19afb81fd7a1b6d94",
+        "productName": "Office Desk",
+        "productPrice": "15000",
+        "sellerContactNumber": "01699887766",
+        "sellerLocation": "Mirpur, Dhaka",
+        "productCategory": "Office",
+        "productCategoryId": 4,
+        "productCondition": "fair",
+        "productBuyingPrice": "40000",
+        "productDescription": "Large office desk with drawers, some scratches.",
+        "productImgURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgVFhU…"
+    },
+    {
+        "_id": "6658b7a19afb81fd7a1b6d95",
+        "productName": "Kitchen Cabinet",
+        "productPrice": "10000",
+        "sellerContactNumber": "01733445522",
+        "sellerLocation": "Bashundhara, Dhaka",
+        "productCategory": "Kitchen",
+        "productCategoryId": 3,
+        "productCondition": "fair",
+        "productBuyingPrice": "30000",
+        "productDescription": "Used kitchen cabinet, decent condition.",
+        "productImgURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgVFhU…"
+    }
+]
