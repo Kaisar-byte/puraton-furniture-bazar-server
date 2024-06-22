@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser')
 
 // middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://puraton-furniture-bazar-719b4.web.app'],
+  origin: ['https://puraton-furniture-bazar-719b4.web.app'],
   credentials: true
 }));
 app.use(express.json());
