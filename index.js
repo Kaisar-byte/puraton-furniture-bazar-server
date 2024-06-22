@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser')
 
 // middleware
 app.use(cors({
-  origin: ['http://localhost:5173'],
+  origin: ['http://localhost:5173', 'https://puraton-furniture-bazar-719b4.web.app'],
   credentials: true
 }));
 app.use(express.json());
@@ -135,10 +135,8 @@ async function run() {
       if (user.email !== req.user.email) {
         res.status(403).send({ message: "forbidden access" })
       }
-
       const cursor = userCollection.find();
       const result = await cursor.toArray();
-
       res.send(result);
     });
 
