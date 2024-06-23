@@ -47,7 +47,7 @@ const verifyToken = (req, res, next) => {
   const token = req?.cookies?.token;
 
   if (!token) {
-    return res.status(401).send({ message: "unauthorized access token missing" })
+    return res.status(401).send({ message: "unauthorized access" })
   }
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
     if (err) {
@@ -103,15 +103,16 @@ async function run() {
       res.send(result);
     });
 
+    // get all products
     app.get("/products", async (req, res) => {
       const cursor = furnitureCollection.find();
       const result = await cursor.toArray();
       res.send(result);
     });
 
+
     app.get("/categories/:subCategory", async (req, res) => {
       const subCategory = req.params.subCategory;
-
       const query = { productCategory: { $eq: subCategory } };
       const categorywiseData = await furnitureCollection.find(query).toArray();
       res.send(categorywiseData);
@@ -130,6 +131,7 @@ async function run() {
       }
     });
 
+    // get all users
     app.get("/users", logger, verifyToken, async (req, res) => {
       const user = req.user;
       if (user.email !== req.user.email) {
