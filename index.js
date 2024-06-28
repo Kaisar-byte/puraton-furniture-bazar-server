@@ -3,14 +3,14 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
 require("dotenv").config();
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser')
 
 
 // middleware
 app.use(cors({
-  origin: ['https://puraton-furniture-bazar-719b4.web.app'],
+  origin: ['https://puraton-furniture-bazar-719b4.web.app', 'http://localhost:5173'],
   credentials: true
 }));
 app.use(express.json());
@@ -71,7 +71,7 @@ async function run() {
 
     const furnitureCollection = client
       .db("furnitureDB")
-      .collection("furniture");
+      .collection("product");
 
     const userCollection = client.db("furnitureDB").collection("user");
     const orderCollection = client.db("furnitureDB").collection("order");
@@ -97,19 +97,41 @@ async function run() {
     })
 
     // add new product
-    app.post("/addProduct", async (req, res) => {
+    app.post("/product", async (req, res) => {
       const newProduct = req.body;
       const result = await furnitureCollection.insertOne(newProduct);
       res.send(result);
     });
 
     // get all products
-    app.get("/products", async (req, res) => {
+    app.get("/products", logger, verifyToken, async (req, res) => {
+      const user = req.user;
+      if (user.email !== req.user.email) {
+        res.status(401).send({ message: "forbidden access" })
+      }
       const cursor = furnitureCollection.find();
       const result = await cursor.toArray();
       res.send(result);
     });
 
+    app.get("/products/:email", async (req, res) => {
+      const userMail = req.params.email;
+      const query = { sellerEmail: { $eq: userMail } }
+      const cursor = furnitureCollection.find(query);
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+
+
+    app.delete("/products/:id", async (req, res) => {
+      const id = req.params.id
+      const query = { _id: new ObjectId(id) }
+      const result = await furnitureCollection.deleteOne(query)
+      if (result.deletedCount === 0) {
+        console.log("no product deleted");
+      }
+      res.send({ deletedCount: result.deletedCount })
+    });
 
     app.get("/categories/:subCategory", async (req, res) => {
       const subCategory = req.params.subCategory;
@@ -157,14 +179,27 @@ async function run() {
     app.post("/order", async (req, res) => {
       const order = req.body;
       const result = await orderCollection.insertOne(order);
+      console.log(result);
       res.send(result);
     })
-    app.get("/orders", logger, verifyToken, async (req, res) => {
+    app.get("/order", logger, verifyToken, async (req, res) => {
       const cursor = orderCollection.find()
       const result = await cursor.toArray();
       res.send(result);
     })
 
+    app.get("/order/:email", logger, verifyToken, async (req, res) => {
+      const user = req.user
+      if (user.email !== req.user.email) {
+        res.status(401).send({ message: "Unauthorized access" })
+      }
+      const userMail = req.params.email;
+      const query = { email: { $eq: userMail } }
+      const cursor = orderCollection.find(query)
+      const result = await cursor.toArray();
+      console.log(result);
+      res.send(result);
+    })
 
   } finally {
 
